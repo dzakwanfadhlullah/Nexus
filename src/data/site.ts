@@ -1,0 +1,396 @@
+import type {
+  PricingPackage,
+  ResourceItem,
+  ServiceItem,
+  ShowcaseItem,
+} from "@/types/content";
+
+export const siteConfig = {
+  name: "Nexus Project",
+  shortName: "Nexus",
+  description:
+    "Nexus Project membantu bisnis menemukan arah website atau aplikasi melalui showcase, lalu membangunnya menjadi produk digital yang siap digunakan.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6281234567890",
+  email: process.env.NEXT_PUBLIC_EMAIL ?? "hello@nexusproject.id",
+  instagram:
+    process.env.NEXT_PUBLIC_INSTAGRAM_URL ??
+    "https://instagram.com/nexusproject",
+};
+
+export const navigation = [
+  { label: "Services", href: "/services" },
+  { label: "Showcase", href: "/showcase" },
+  { label: "Process", href: "/#process" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Resources", href: "/resources" },
+] as const;
+
+export const services: ServiceItem[] = [
+  {
+    slug: "landing-page",
+    title: "Landing Page",
+    shortDescription: "Satu halaman fokus untuk campaign, promosi, dan leads.",
+    description:
+      "Landing page untuk menjelaskan value dengan cepat dan mengarahkan pengunjung menuju satu tindakan utama.",
+    bestFor: ["Jasa lokal", "Campaign", "Product launch", "Waitlist"],
+    commonSections: ["Hero", "Benefits", "Packages", "FAQ", "CTA"],
+    keyFeatures: ["Responsive", "WhatsApp CTA", "Basic SEO", "Analytics-ready"],
+  },
+  {
+    slug: "company-profile",
+    title: "Company Profile",
+    shortDescription: "Website resmi untuk membangun kepercayaan bisnis.",
+    description:
+      "Profil digital yang menyusun identitas, layanan, legalitas, portfolio, dan kontak resmi secara rapi.",
+    bestFor: ["CV/PT", "Organisasi", "Klinik", "Jasa profesional"],
+    commonSections: ["About", "Services", "Portfolio", "Team", "Contact"],
+    keyFeatures: ["Multi-page", "CMS-ready", "Maps", "Contact form"],
+  },
+  {
+    slug: "website-catalog",
+    title: "Website Catalog",
+    shortDescription: "Katalog produk dan layanan tanpa alur checkout yang berat.",
+    description:
+      "Katalog yang membantu calon pelanggan melihat pilihan, harga, dan detail sebelum order lewat WhatsApp.",
+    bestFor: ["Florist", "Catering", "Rental", "Retail lokal"],
+    commonSections: ["Catalog", "Categories", "Best seller", "FAQ", "Order CTA"],
+    keyFeatures: ["Product grid", "Filters", "Gallery", "WhatsApp order"],
+  },
+  {
+    slug: "web-app",
+    title: "Web App",
+    shortDescription: "Sistem web custom untuk workflow dan data bisnis.",
+    description:
+      "Web app untuk login, workflow, database, customer portal, dan kebutuhan operasional yang lebih spesifik.",
+    bestFor: ["Startup", "Tim internal", "Booking system", "Customer portal"],
+    commonSections: ["Login", "Dashboard", "Data flow", "Reports", "Settings"],
+    keyFeatures: ["Authentication", "Database", "Roles", "Automation"],
+  },
+  {
+    slug: "mobile-app",
+    title: "Mobile App",
+    shortDescription: "Pengalaman mobile-first untuk MVP dan produk digital.",
+    description:
+      "Aplikasi atau PWA yang fokus, ringan, dan disusun mengikuti alur pengguna utama.",
+    bestFor: ["MVP", "Community", "Learning", "Booking"],
+    commonSections: ["Onboarding", "Home", "Main flow", "Profile", "Notifications"],
+    keyFeatures: ["PWA-ready", "Mobile UI", "User flow", "API-ready"],
+  },
+  {
+    slug: "ecommerce",
+    title: "E-commerce",
+    shortDescription: "Katalog, checkout, dan pengelolaan order.",
+    description:
+      "Toko digital untuk produk yang membutuhkan transaksi, pembayaran, dan pengelolaan pesanan.",
+    bestFor: ["Retail", "Product brand", "Pre-order", "Online shop"],
+    commonSections: ["Catalog", "Product detail", "Cart", "Checkout", "Account"],
+    keyFeatures: ["Payment", "Order flow", "Inventory-ready", "CMS"],
+  },
+  {
+    slug: "dashboard",
+    title: "Dashboard",
+    shortDescription: "Pusat data, laporan, dan kontrol operasional.",
+    description:
+      "Dashboard untuk memantau metrik, mengelola data, dan menjalankan workflow internal.",
+    bestFor: ["Admin", "Operations", "Reporting", "Management"],
+    commonSections: ["Overview", "Tables", "Reports", "Roles", "Settings"],
+    keyFeatures: ["Charts", "CRUD", "Export", "Role access"],
+  },
+];
+
+export const showcases: ShowcaseItem[] = [
+  {
+    id: "showcase-001",
+    slug: "modern-travel-website",
+    title: "Modern Travel Website",
+    subtitle: "Arah landing page untuk paket perjalanan dan booking.",
+    type: "landing-page",
+    industry: ["Travel"],
+    style: ["Premium", "Clean"],
+    goal: ["Booking", "Leads"],
+    features: ["WhatsApp CTA", "Pricing", "Gallery", "Maps"],
+    status: "concept",
+    featured: true,
+    image: "/images/showcase/modern-travel-website.png",
+    visualTone: "sky",
+    shortDescription:
+      "Paket, visual destinasi, dan jalur booking dalam satu halaman yang mudah dipindai.",
+    description:
+      "Arah landing page travel yang menampilkan paket, membangun kepercayaan, dan mendorong booking melalui WhatsApp.",
+    recommendedFor: ["Travel agent", "Private trip", "Tour operator", "Rental wisata"],
+    problem:
+      "Informasi paket sering tersebar di chat dan media sosial sehingga sulit dibandingkan.",
+    solution:
+      "Satukan paket, galeri, testimonial, FAQ, dan booking CTA dalam alur yang jelas.",
+    pageStructure: ["Hero booking", "Popular packages", "Why us", "Gallery", "FAQ", "Contact"],
+    keyFeatures: ["WhatsApp booking", "Package cards", "Maps", "Mobile-first"],
+    styleDirection: "Clean, visual, premium, dan berorientasi pada kepercayaan.",
+    createdAt: "2026-07-02",
+  },
+  {
+    id: "showcase-002",
+    slug: "soft-florist-catalog",
+    title: "Soft Florist Catalog",
+    subtitle: "Katalog lembut untuk bouquet dan custom order.",
+    type: "landing-page",
+    industry: ["Florist"],
+    style: ["Soft", "Clean"],
+    goal: ["Catalog", "Sales"],
+    features: ["WhatsApp CTA", "Gallery", "Pricing"],
+    status: "concept",
+    featured: true,
+    image: "/images/showcase/soft-florist-catalog.png",
+    visualTone: "peach",
+    shortDescription:
+      "Katalog buket, best seller, delivery area, dan order WhatsApp yang terasa personal.",
+    description:
+      "Website katalog florist yang membantu pelanggan memilih buket dan mengirim custom order dengan lebih mudah.",
+    recommendedFor: ["Florist", "Gift shop", "Hamper", "Custom bouquet"],
+    problem: "Feed sosial membuat kategori, harga, dan opsi custom sulit dibandingkan.",
+    solution: "Susun produk, kategori, delivery area, dan order CTA dalam satu katalog.",
+    pageStructure: ["Hero", "Best seller", "Categories", "Custom order", "Delivery", "CTA"],
+    keyFeatures: ["Product gallery", "Best seller", "WhatsApp order", "Pricing"],
+    styleDirection: "Hangat, lembut, tactile, dan approachable.",
+    createdAt: "2026-07-02",
+  },
+  {
+    id: "showcase-003",
+    slug: "warm-catering-page",
+    title: "Warm Catering Page",
+    subtitle: "Halaman paket catering dengan rasa lokal yang modern.",
+    type: "landing-page",
+    industry: ["Catering"],
+    style: ["Editorial", "Soft"],
+    goal: ["Sales", "Leads"],
+    features: ["Pricing", "Gallery", "WhatsApp CTA"],
+    status: "concept",
+    featured: true,
+    image: "/images/showcase/warm-catering-page.png",
+    visualTone: "yellow",
+    shortDescription:
+      "Menu, paket acara, minimum order, dan delivery disusun agar mudah dipilih.",
+    description:
+      "Arah landing page catering yang menampilkan paket secara hangat dan langsung mengarahkan order.",
+    recommendedFor: ["Catering", "Nasi box", "Event food", "Aqiqah"],
+    problem: "Paket dan minimum order sering sulit dipahami hanya dari katalog chat.",
+    solution: "Beri hierarchy pada menu, paket, kebutuhan acara, dan langkah pemesanan.",
+    pageStructure: ["Hero", "Packages", "Menu", "Occasions", "How to order", "CTA"],
+    keyFeatures: ["Package cards", "Menu gallery", "Order flow", "WhatsApp"],
+    styleDirection: "Warm, editorial, crafted, dan kaya visual.",
+    createdAt: "2026-07-02",
+  },
+  {
+    id: "showcase-004",
+    slug: "clinic-trust-website",
+    title: "Clinic Trust Website",
+    subtitle: "Company profile klinik yang menenangkan dan jelas.",
+    type: "company-profile",
+    industry: ["Clinic"],
+    style: ["Clean", "Premium"],
+    goal: ["Brand Trust", "Booking"],
+    features: ["Contact Form", "Maps", "Gallery"],
+    status: "concept",
+    featured: true,
+    image: "/images/showcase/clinic-trust-website.png",
+    visualTone: "mint",
+    shortDescription:
+      "Layanan, dokter, jadwal, lokasi, dan appointment dalam pengalaman yang reassuring.",
+    description:
+      "Arah website klinik yang berfokus pada kepercayaan, layanan, jadwal, dan akses kontak.",
+    recommendedFor: ["Clinic", "Dental care", "Wellness practice", "Doctor profile"],
+    problem: "Calon pasien kesulitan menemukan layanan, jadwal, dan lokasi yang valid.",
+    solution: "Tampilkan informasi inti dan appointment path secara konsisten.",
+    pageStructure: ["Hero", "Services", "Doctors", "Schedule", "Location", "Contact"],
+    keyFeatures: ["Appointment CTA", "Doctor profile", "Schedule", "Maps"],
+    styleDirection: "Bright, humane, accessible, dan trustworthy.",
+    createdAt: "2026-07-02",
+  },
+  {
+    id: "showcase-005",
+    slug: "dashboard-web-app",
+    title: "Dashboard Web App",
+    subtitle: "Sistem operasional untuk data, status, dan laporan.",
+    type: "dashboard",
+    industry: ["SaaS"],
+    style: ["Minimal", "Clean"],
+    goal: ["Internal System"],
+    features: ["Dashboard", "CMS"],
+    status: "concept",
+    featured: true,
+    image: "/images/showcase/dashboard-web-app.png",
+    visualTone: "dark",
+    shortDescription:
+      "Overview, pipeline, laporan, dan aktivitas tim dalam interface yang terstruktur.",
+    description:
+      "Arah dashboard untuk menyatukan data dan workflow operasional dalam satu interface.",
+    recommendedFor: ["Operations", "Admin team", "SaaS MVP", "Data workflow"],
+    problem: "Data dan status kerja tersebar di spreadsheet dan chat.",
+    solution: "Satukan overview, pipeline, laporan, dan role access.",
+    pageStructure: ["Login", "Overview", "Data table", "Pipeline", "Reports", "Settings"],
+    keyFeatures: ["Role access", "Data table", "Status tracking", "Reports"],
+    styleDirection: "Functional, minimal, structured, dan calm.",
+    createdAt: "2026-07-02",
+  },
+  {
+    id: "showcase-006",
+    slug: "service-ac-landing",
+    title: "Service AC Landing",
+    subtitle: "Landing page cepat untuk inquiry dan booking teknisi.",
+    type: "landing-page",
+    industry: ["Service AC"],
+    style: ["Bold", "Clean"],
+    goal: ["Leads", "Booking"],
+    features: ["WhatsApp CTA", "Pricing", "Maps"],
+    status: "concept",
+    featured: true,
+    visualTone: "sky",
+    shortDescription:
+      "Layanan, area coverage, harga, dan emergency CTA tanpa membuat user tersesat.",
+    description:
+      "Arah landing page service AC yang fokus pada kecepatan inquiry dan trust teknisi.",
+    recommendedFor: ["Service AC", "Home service", "Maintenance", "Technician"],
+    problem: "Pelanggan membutuhkan estimasi dan area layanan dengan cepat.",
+    solution: "Letakkan harga, coverage, proof, dan WhatsApp sebagai jalur utama.",
+    pageStructure: ["Hero", "Services", "Pricing", "Coverage", "Proof", "FAQ"],
+    keyFeatures: ["Sticky WhatsApp", "Pricing", "Coverage", "FAQ"],
+    styleDirection: "Bold, direct, clean, dan conversion-ready.",
+    createdAt: "2026-07-02",
+  },
+  {
+    id: "showcase-007",
+    slug: "minimal-portfolio",
+    title: "Minimal Portfolio",
+    subtitle: "Portfolio editorial untuk karya dan case study.",
+    type: "company-profile",
+    industry: ["Portfolio"],
+    style: ["Minimal", "Editorial"],
+    goal: ["Brand Trust"],
+    features: ["Gallery", "Contact Form"],
+    status: "concept",
+    featured: true,
+    visualTone: "paper",
+    shortDescription:
+      "Karya, proses, dan profil profesional dibingkai dalam layout yang tenang.",
+    description:
+      "Arah portfolio minimal yang memberi ruang pada karya dan narasi case study.",
+    recommendedFor: ["Designer", "Developer", "Photographer", "Creative"],
+    problem: "Karya tersebar dan tidak punya cerita yang mudah dipahami.",
+    solution: "Gabungkan project grid, case study, about, dan contact dalam satu archive.",
+    pageStructure: ["Intro", "Selected work", "Case studies", "About", "Contact"],
+    keyFeatures: ["Project grid", "Case study", "Gallery", "Contact"],
+    styleDirection: "Minimal, typographic, spacious, dan editorial.",
+    createdAt: "2026-07-02",
+  },
+  {
+    id: "showcase-008",
+    slug: "mobile-app-preview",
+    title: "Mobile App Preview",
+    subtitle: "Arah mobile-first untuk MVP dan layanan digital.",
+    type: "mobile-app",
+    industry: ["SaaS"],
+    style: ["Soft", "Clean"],
+    goal: ["Leads"],
+    features: ["Dashboard", "CMS"],
+    status: "concept",
+    featured: true,
+    visualTone: "mint",
+    shortDescription:
+      "Onboarding, main flow, progress, dan profile dalam pengalaman mobile yang ringan.",
+    description:
+      "Arah aplikasi mobile untuk memvalidasi alur produk sebelum development lebih jauh.",
+    recommendedFor: ["MVP", "Learning app", "Booking app", "Community"],
+    problem: "Ide aplikasi belum memiliki alur dan prioritas layar yang jelas.",
+    solution: "Susun onboarding, main flow, state, dan CTA ke dalam prototype arah.",
+    pageStructure: ["Onboarding", "Home", "Main flow", "Progress", "Profile"],
+    keyFeatures: ["Mobile UI", "User flow", "States", "Prototype-ready"],
+    styleDirection: "Light, focused, soft, dan touch-friendly.",
+    createdAt: "2026-07-02",
+  },
+];
+
+export const pricingPackages: PricingPackage[] = [
+  {
+    slug: "website-launch",
+    title: "Website Launch",
+    description:
+      "Untuk landing page, company profile, dan katalog bisnis yang fokus pada informasi, trust, dan leads.",
+    bestFor: ["UMKM", "Bisnis lokal", "Personal brand", "Company profile awal"],
+    includes: [
+      "1–5 halaman",
+      "Responsive mobile",
+      "CTA WhatsApp",
+      "Basic SEO",
+      "Maps atau contact section",
+      "Deployment support",
+    ],
+    priceLabel: "Estimasi setelah brief",
+    ctaLabel: "Konsultasi Website",
+    highlighted: false,
+  },
+  {
+    slug: "custom-build",
+    title: "Custom Build",
+    description:
+      "Untuk web app, dashboard, e-commerce, dan sistem digital yang membutuhkan fitur khusus.",
+    bestFor: ["Startup", "Tim internal", "Admin dashboard", "Custom application"],
+    includes: [
+      "Custom UI/UX",
+      "Login dan role access",
+      "Database integration",
+      "Admin dashboard",
+      "API/payment optional",
+      "Scalable development",
+    ],
+    priceLabel: "Scope-based project",
+    ctaLabel: "Diskusi Custom Project",
+    highlighted: true,
+  },
+];
+
+export const resources: ResourceItem[] = [
+  {
+    slug: "website-checklist-bisnis-lokal",
+    title: "Website Checklist untuk Bisnis Lokal",
+    category: "Checklist",
+    excerpt: "Hal yang perlu disiapkan sebelum membuat website bisnis lokal.",
+    content: [
+      "Mulai dari profil bisnis, layanan utama, area layanan, dan tujuan website.",
+      "Siapkan daftar produk atau paket, harga atau range harga, serta pertanyaan yang sering diajukan.",
+      "Tentukan CTA utama: WhatsApp, booking, order, atau form inquiry.",
+      "Kumpulkan logo, foto, alamat, Maps, testimoni real, dan kontak resmi.",
+    ],
+    publishedAt: "2026-07-02",
+  },
+  {
+    slug: "landing-page-vs-company-profile",
+    title: "Landing Page vs Company Profile",
+    category: "Website Planning",
+    excerpt: "Cara memilih jenis website berdasarkan tujuan bisnis.",
+    content: [
+      "Landing page cocok ketika satu campaign atau penawaran membutuhkan satu tindakan utama.",
+      "Company profile cocok ketika bisnis perlu menjelaskan profil, beberapa layanan, portfolio, dan kredibilitas.",
+      "Jika masih ragu, mulai dari tujuan: leads cepat atau trust jangka panjang.",
+    ],
+    publishedAt: "2026-07-02",
+  },
+  {
+    slug: "cara-menyiapkan-brief-website",
+    title: "Cara Menyiapkan Brief Website",
+    category: "Website Planning",
+    excerpt: "Brief sederhana yang cukup untuk memulai arah project.",
+    content: [
+      "Tuliskan siapa target pengguna dan masalah utama yang ingin diselesaikan.",
+      "Kumpulkan dua atau tiga referensi serta jelaskan bagian yang disukai.",
+      "Prioritaskan fitur wajib, fitur tambahan, budget range, dan target waktu.",
+    ],
+    publishedAt: "2026-07-02",
+  },
+];
+
+export const showcaseFilters = {
+  type: ["Landing Page", "Company Profile", "E-commerce", "Web App", "Mobile App", "Dashboard"],
+  industry: ["Travel", "Florist", "Catering", "Clinic", "Service AC", "SaaS", "Portfolio"],
+  style: ["Minimal", "Premium", "Soft", "Dark", "Clean", "Bold", "Editorial"],
+  goal: ["Leads", "Booking", "Catalog", "Sales", "Brand Trust", "Internal System"],
+};

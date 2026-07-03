@@ -1,0 +1,63 @@
+# Documentation and local project notes
+*.md
+docs/
+
+# Dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+build/
+.turbo/
+.cache/
+
+# Environment variables and secrets
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+credentials.json
+credentials.*.json
+secrets.json
+secrets.*.json
+service-account*.json
+.npmrc
+
+# Hosting and local tooling
+.vercel/
+.netlify/
+.pnpm-store/
+.idea/
+.vscode/
+*.code-workspace
+
+# Tests and coverage
+playwright-report/
+test-results/
+coverage/
+blob-report/
+*.tsbuildinfo
+
+# Local visual references
+screencapture-*.png
+
+# Logs and OS files
+*.log
+pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+~$*

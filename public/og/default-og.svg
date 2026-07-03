@@ -1,0 +1,14 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8F5F1"/>
+  <circle cx="154" cy="128" r="260" fill="#DCEBFA"/>
+  <circle cx="1070" cy="560" r="260" fill="#E4EFE5"/>
+  <rect x="86" y="78" width="1028" height="474" rx="48" fill="#FFFDFC" stroke="#1D1D1B" stroke-opacity=".08"/>
+  <rect x="126" y="118" width="72" height="72" rx="24" fill="#1D1D1B"/>
+  <path d="M146 170V138L162 154L178 138V170" stroke="#F8F5F1" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="126" y="288" fill="#1D1D1B" font-family="Georgia, serif" font-size="72">Find the direction.</text>
+  <text x="126" y="372" fill="#1D1D1B" font-family="Georgia, serif" font-size="72" font-style="italic">Build with Nexus.</text>
+  <text x="126" y="442" fill="#4D4A45" font-family="Arial, sans-serif" font-size="28">Websites, apps, and digital systems—shaped with clarity.</text>
+  <rect x="806" y="144" width="248" height="154" rx="28" fill="#B7D4F2"/>
+  <rect x="748" y="276" width="208" height="132" rx="24" fill="#F1D891"/>
+  <rect x="904" y="372" width="150" height="108" rx="22" fill="#C5DCC8"/>
+</svg>
