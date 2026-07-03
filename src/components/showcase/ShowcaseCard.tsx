@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { formatType } from "@/lib/content";
+import { formatShowcaseStatus, formatType } from "@/lib/content";
 import type { ShowcaseItem } from "@/types/content";
 import { ShowcaseVisual } from "@/components/showcase/ShowcaseVisual";
 
@@ -18,7 +18,9 @@ export function ShowcaseCard({
       </Link>
       <div className="showcase-body">
         <div className="showcase-topline">
-          <span className="status">Concept</span>
+          <span className={`status status-${item.status}`}>
+            {formatShowcaseStatus(item.status)}
+          </span>
           <span className="mini-label">{formatType(item.type)}</span>
         </div>
         <h3>

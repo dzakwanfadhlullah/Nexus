@@ -3,7 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import { showcases } from "@/data/site";
-import { formatType, getRelatedShowcases, getShowcaseBySlug } from "@/lib/content";
+import {
+  formatShowcaseStatus,
+  formatType,
+  getRelatedShowcases,
+  getShowcaseBySlug,
+} from "@/lib/content";
 import { ShowcaseVisual } from "@/components/showcase/ShowcaseVisual";
 import { ShowcaseCard } from "@/components/showcase/ShowcaseCard";
 
@@ -48,7 +53,9 @@ export default async function ShowcaseDetailPage({
             <Link href="/showcase" className="eyebrow">
               <ArrowLeft size={14} /> Showcase
             </Link>
-            <span className="status">Concept</span>
+            <span className={`status status-${item.status}`}>
+              {formatShowcaseStatus(item.status)}
+            </span>
             <h1>{item.title}</h1>
             <p>{item.description}</p>
             <div className="chip-list">

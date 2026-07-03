@@ -1083,6 +1083,16 @@ a {
   font-weight: 700;
 }
 
+.status-case-study {
+  background: var(--mint-soft);
+  color: #31543a;
+}
+
+.status-client-project {
+  background: var(--blue-soft);
+  color: #264d73;
+}
+
 .showcase-body h3 {
   margin: 0 0 8px;
   font-family: var(--serif);
@@ -1970,5 +1980,10 @@ a {
 
   .hero-video {
     display: none;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

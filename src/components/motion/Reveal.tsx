@@ -1,6 +1,13 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useSyncExternalStore } from "react";
+
+const subscribe = () => () => undefined;
+
+function useHydrated() {
+  return useSyncExternalStore(subscribe, () => true, () => false);
+}
 
 export function Reveal({
   children,
@@ -12,11 +19,15 @@ export function Reveal({
   className?: string;
 }) {
   const reduceMotion = useReducedMotion();
+  const mounted = useHydrated();
 
-  if (reduceMotion) return <div className={className}>{children}</div>;
+  if (mounted && reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
+      data-reveal=""
       className={className}
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -38,8 +49,11 @@ export function Floating({
   delay?: number;
 }) {
   const reduceMotion = useReducedMotion();
+  const mounted = useHydrated();
 
-  if (reduceMotion) return <div className={className}>{children}</div>;
+  if (mounted && reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div

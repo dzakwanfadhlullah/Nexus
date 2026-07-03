@@ -40,3 +40,12 @@ export function formatType(type: ShowcaseItem["type"]) {
   };
   return labels[type];
 }
+
+export function formatShowcaseStatus(status: ShowcaseItem["status"]) {
+  const labels: Record<ShowcaseItem["status"], string> = {
+    concept: "Concept",
+    "client-project": "Client Project",
+    "case-study": "Case Study",
+  };
+  return labels[status];
+}
