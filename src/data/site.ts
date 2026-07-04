@@ -99,7 +99,7 @@ export const services: ServiceItem[] = [
   },
 ];
 
-export const showcases: ShowcaseItem[] = [
+const showcaseCatalog: ShowcaseItem[] = [
   {
     id: "showcase-015",
     slug: "seven-salon-editorial-booking",
@@ -119,7 +119,7 @@ export const showcases: ShowcaseItem[] = [
     ],
     status: "case-study",
     featured: true,
-    image: "/images/showcase/seven-salon.png",
+    image: "/images/showcase/seven-salon-live.png",
     visualTone: "dark",
     shortDescription:
       "Luxury hair experience dengan editorial storytelling, signature treatments, cabang, dan booking wizard.",
@@ -178,7 +178,7 @@ export const showcases: ShowcaseItem[] = [
     ],
     status: "case-study",
     featured: true,
-    image: "/images/showcase/kareertrack-dashboard.svg",
+    image: "/images/showcase/kareertrack-live.png",
     visualTone: "sky",
     shortDescription:
       "Workspace job seeker untuk application pipeline, interview, follow-up, dokumen, company research, dan review.",
@@ -237,7 +237,7 @@ export const showcases: ShowcaseItem[] = [
     ],
     status: "case-study",
     featured: true,
-    image: "/images/showcase/osgov8-catalog.png",
+    image: "/images/showcase/osgov8-live.png",
     visualTone: "sky",
     shortDescription:
       "Catalog experience berbasis batch dengan status produk, detail modal, dan order menuju Google Forms.",
@@ -296,7 +296,7 @@ export const showcases: ShowcaseItem[] = [
     ],
     status: "case-study",
     featured: true,
-    image: "/images/showcase/afternoon-photo-studio.webp",
+    image: "/images/showcase/afternoon-live.png",
     visualTone: "peach",
     shortDescription:
       "Website studio foto untuk paket wisuda, family, couple, maternity, product, dan yearbook.",
@@ -355,7 +355,7 @@ export const showcases: ShowcaseItem[] = [
     ],
     status: "case-study",
     featured: true,
-    image: "/images/showcase/tradekita-journal.webp",
+    image: "/images/showcase/tradekita-live.png",
     visualTone: "dark",
     shortDescription:
       "Sistem jurnal trading dengan reporting, calendar, backtest, simulator, import broker, dan risk tools.",
@@ -396,65 +396,6 @@ export const showcases: ShowcaseItem[] = [
     createdAt: "2026-07-04",
   },
   {
-    id: "showcase-020",
-    slug: "joffi-ramen-mobile-menu",
-    title: "Joffi Ramen Mobile Menu",
-    subtitle: "Mobile-first restaurant experience dengan menu, lokasi, dan social discovery.",
-    type: "ecommerce",
-    industry: ["F&B", "Restaurant"],
-    style: ["Editorial", "Warm", "Mobile-first"],
-    goal: ["Catalog", "Leads", "Local SEO"],
-    features: [
-      "Menu Popup",
-      "Best Seller Carousel",
-      "Interactive Map",
-      "TikTok Feed",
-      "Quick Access",
-      "Parallax Hero",
-    ],
-    status: "case-study",
-    featured: true,
-    image: "/images/showcase/joffi-ramen.webp",
-    visualTone: "peach",
-    shortDescription:
-      "Mobile restaurant microsite untuk menu ramen, best seller, lokasi, TikTok, dan quick actions.",
-    description:
-      "Joffi Ramen menghadirkan restaurant discovery yang dirancang seperti aplikasi mobile. Hero atmosferik mengarah ke menu, best seller, lokasi interaktif, dan konten TikTok tanpa membuat pengunjung mencari informasi di banyak kanal.",
-    recommendedFor: [
-      "Restaurant",
-      "Ramen shop",
-      "F&B microsite",
-      "Social-first local brand",
-    ],
-    problem:
-      "Menu, rekomendasi produk, lokasi, syarat layanan, dan social content sering tersebar sehingga pengalaman pelanggan tidak konsisten.",
-    solution:
-      "Gabungkan menu visual, best seller carousel, quick access, map, dan TikTok discovery dalam mobile-first microsite yang terasa seperti mini app.",
-    pageStructure: [
-      "Image-led parallax hero",
-      "Quick access grid",
-      "Best seller carousel",
-      "Menu modal",
-      "Location and interactive map",
-      "TikTok content section",
-      "Terms popup",
-      "Compact mobile footer",
-    ],
-    keyFeatures: [
-      "Parallax hero dan animated steam atmosphere",
-      "Menu categories untuk ramen, sides, dan drinks",
-      "Best seller carousel dengan product imagery",
-      "Quick access navigation",
-      "Interactive Leaflet map",
-      "TikTok thumbnail feed",
-      "Terms and condition popup",
-      "Responsive mobile shell dengan Vercel Analytics",
-    ],
-    styleDirection:
-      "Warm Japanese food editorial dengan photography ramen, dark overlays, cream surfaces, dan micro-motion yang immersive.",
-    createdAt: "2026-07-04",
-  },
-  {
     id: "showcase-021",
     slug: "kelas-kampus-learning-platform",
     title: "KelasKampus Learning Platform",
@@ -473,7 +414,7 @@ export const showcases: ShowcaseItem[] = [
     ],
     status: "case-study",
     featured: true,
-    image: "/images/showcase/kelas-kampus-dashboard.svg",
+    image: "/images/showcase/kelas-kampus-live.png",
     visualTone: "sky",
     shortDescription:
       "Platform belajar dengan target PTN, tryout, progress, materi, jadwal, profil, dan premium gate.",
@@ -1076,6 +1017,31 @@ export const showcases: ShowcaseItem[] = [
   },
 ];
 
+const preferredShowcaseOrder = [
+  "kareertrack-application-workspace",
+  "seven-salon-editorial-booking",
+  "agro-buah-b2b-supplier",
+  "jogja-rental-lead-platform",
+  "tradekita-trading-journal",
+  "barberlabs-booking-operations",
+  "osgov8-batch-catalog",
+  "crayon-daycare-trust-website",
+  "bleum-florist-catalog",
+  "afternoon-photo-studio-booking",
+  "kelas-kampus-learning-platform",
+  "kedai-tansu-ordering-experience",
+] as const;
+
+const showcaseRank = new Map<string, number>(
+  preferredShowcaseOrder.map((slug, index) => [slug, index])
+);
+
+export const showcases = [...showcaseCatalog].sort((left, right) => {
+  const leftRank = showcaseRank.get(left.slug) ?? Number.POSITIVE_INFINITY;
+  const rightRank = showcaseRank.get(right.slug) ?? Number.POSITIVE_INFINITY;
+  return leftRank - rightRank;
+});
+
 export const pricingPackages: PricingPackage[] = [
   {
     slug: "website-launch",
@@ -1166,7 +1132,6 @@ export const showcaseFilters = {
     "Fintech",
     "Photography",
     "Productivity",
-    "Restaurant",
     "SaaS",
     "Salon",
     "Trading",
@@ -1194,11 +1159,9 @@ export const showcaseFilters = {
     "Clean",
     "Bold",
     "Editorial",
-    "Mobile-first",
     "Pixel",
     "Playful",
     "Product UI",
-    "Warm",
   ],
   goal: [
     "Leads",
