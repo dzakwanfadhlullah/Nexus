@@ -7,14 +7,15 @@ export function HeroVideo() {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let visible = true;
 
     const syncPlayback = () => {
       const video = videoRef.current;
       if (!video) return;
 
-      if (mediaQuery.matches) {
+      if (mediaQuery.matches || !visible || document.hidden) {
         video.pause();
-        video.currentTime = 0;
+        if (mediaQuery.matches) video.currentTime = 0;
         return;
       }
 
@@ -24,8 +25,23 @@ export function HeroVideo() {
     };
 
     syncPlayback();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        syncPlayback();
+      },
+      { threshold: 0.08 }
+    );
+    if (videoRef.current) observer.observe(videoRef.current);
+
+    const syncVisibility = () => syncPlayback();
     mediaQuery.addEventListener("change", syncPlayback);
-    return () => mediaQuery.removeEventListener("change", syncPlayback);
+    document.addEventListener("visibilitychange", syncVisibility);
+    return () => {
+      observer.disconnect();
+      mediaQuery.removeEventListener("change", syncPlayback);
+      document.removeEventListener("visibilitychange", syncVisibility);
+    };
   }, []);
 
   return (

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BackToTop } from "@/components/layout/BackToTop";
+import { Reveal } from "@/components/motion/Reveal";
 import { siteConfig } from "@/data/site";
 
 const columns = [
@@ -49,12 +51,15 @@ export function Footer() {
   return (
     <div className="site-footer-wrap">
       <footer className="site-footer">
-        <div className="footer-top">
+        <Reveal className="footer-top" variant="up">
           <div className="footer-brand">
             <Image src="/icons/nexus-logo.svg" alt="Nexus Project" width={184} height={40} />
             <p>
               Studio digital berbasis showcase untuk website, aplikasi, dan sistem digital yang siap digunakan.
             </p>
+            <span className="availability">
+              <i aria-hidden="true" /> Available for selected projects
+            </span>
           </div>
           {columns.map((column) => (
             <nav className="footer-column" key={column.title} aria-label={column.title}>
@@ -66,10 +71,14 @@ export function Footer() {
               ))}
             </nav>
           ))}
-        </div>
+        </Reveal>
+        <Reveal className="footer-wordmark" variant="mask">
+          <span aria-hidden="true">Nexus</span>
+        </Reveal>
         <div className="footer-bottom">
           <span>© 2026 Nexus Project. Dibangun dengan arah, struktur, dan tujuan.</span>
-          <span>Indonesia · Available for selected projects</span>
+          <span>Bandung, Indonesia · GMT+7</span>
+          <BackToTop />
         </div>
       </footer>
     </div>

@@ -2,23 +2,32 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { navigation } from "@/data/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const close = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
+    const syncScroll = () => setScrolled(window.scrollY > 48);
+    syncScroll();
     window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
+    window.addEventListener("scroll", syncScroll, { passive: true });
+    return () => {
+      window.removeEventListener("keydown", close);
+      window.removeEventListener("scroll", syncScroll);
+    };
   }, []);
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="header-inner">
         <Link className="brand" href="/" aria-label="Nexus Project — homepage">
           <Image src="/icons/nexus-logo.svg" alt="Nexus Project" width={184} height={40} priority />
@@ -26,7 +35,17 @@ export function Header() {
 
         <nav className="header-nav" aria-label="Navigasi utama">
           {navigation.map((item) => (
-            <Link key={item.href} href={item.href}>
+            <Link
+              className={
+                item.href.startsWith("/#")
+                  ? undefined
+                  : pathname.startsWith(item.href)
+                    ? "is-active"
+                    : undefined
+              }
+              key={item.href}
+              href={item.href}
+            >
               {item.label}
             </Link>
           ))}

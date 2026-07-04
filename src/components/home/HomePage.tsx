@@ -1,11 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
   Blocks,
-  BookOpen,
   Building2,
   CalendarDays,
-  Camera,
   Check,
   CheckCircle2,
   ClipboardCheck,
@@ -14,9 +13,7 @@ import {
   FileText,
   FolderKanban,
   Gauge,
-  Globe2,
   LayoutDashboard,
-  MessageCircle,
   PanelTop,
   Rocket,
   Search,
@@ -25,21 +22,72 @@ import {
   Target,
   WandSparkles,
 } from "lucide-react";
+import {
+  SiFramer,
+  SiGoogleanalytics,
+  SiGoogleforms,
+  SiGooglegemini,
+  SiGooglesearchconsole,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPostman,
+  SiReact,
+  SiClaude,
+  SiCursor,
+  SiStrapi,
+  SiSupabase,
+  SiTailwindcss,
+  SiWhatsapp,
+} from "react-icons/si";
+import { TbBrandOpenai } from "react-icons/tb";
 import { pricingPackages, services, showcases, siteConfig } from "@/data/site";
 import { ShowcaseCard } from "@/components/showcase/ShowcaseCard";
-import { Floating, Reveal } from "@/components/motion/Reveal";
+import { HorizontalRail } from "@/components/motion/HorizontalRail";
+import { Floating, Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { HeroVideo } from "@/components/home/HeroVideo";
 import { buildWhatsAppUrl } from "@/lib/content";
 
 const personas = [
-  ["Local Business", "Website katalog, Maps, dan WhatsApp untuk calon pelanggan."],
-  ["Service Business", "Landing page untuk travel, catering, rental, florist, dan jasa lokal."],
-  ["Company & Organization", "Company profile, layanan, portfolio, dan kontak resmi."],
-  ["Founder & Startup", "Landing page MVP, waitlist, product page, dan validasi awal."],
-  ["Creator & Portfolio", "Personal website, case study, project archive, dan CV digital."],
-  ["Online Seller", "Katalog, promo, checkout ringan, dan order WhatsApp."],
-  ["Internal Team", "Dashboard, manajemen data, laporan, dan sistem kerja internal."],
-  ["Education & Community", "Course, event, membership, dan halaman program."],
+  [
+    "Local Business",
+    "Website katalog, Maps, dan WhatsApp untuk calon pelanggan.",
+    "/images/personas/01-local-business.jpg",
+  ],
+  [
+    "Service Business",
+    "Landing page untuk travel, catering, rental, florist, dan jasa lokal.",
+    "/images/personas/02-service-business.png",
+  ],
+  [
+    "Company & Organization",
+    "Company profile, layanan, portfolio, dan kontak resmi.",
+    "/images/personas/03-company-organization.jpg",
+  ],
+  [
+    "Founder & Startup",
+    "Landing page MVP, waitlist, product page, dan validasi awal.",
+    "/images/personas/04-founder-startup.jpg",
+  ],
+  [
+    "Creator & Portfolio",
+    "Personal website, case study, project archive, dan CV digital.",
+    "/images/personas/05-creator-portfolio.jpg",
+  ],
+  [
+    "Online Seller",
+    "Katalog, promo, checkout ringan, dan order WhatsApp.",
+    "/images/personas/06-online-seller.jpg",
+  ],
+  [
+    "Internal Team",
+    "Dashboard, manajemen data, laporan, dan sistem kerja internal.",
+    "/images/personas/07-internal-team.jpg",
+  ],
+  [
+    "Education & Community",
+    "Course, event, membership, dan halaman program.",
+    "/images/personas/08-education-community.png",
+  ],
 ];
 
 const proof = [
@@ -48,6 +96,29 @@ const proof = [
   [Target, "Lead-ready Structure", "CTA dan jalur kontak direncanakan sejak awal."],
   [Blocks, "Scalable Build", "Bisa berkembang dari website menjadi sistem yang lebih besar."],
 ];
+
+const heroPreviews = [
+  {
+    label: "Travel direction",
+    slug: "modern-travel-website",
+    image: "/images/showcase/modern-travel-website.png",
+  },
+  {
+    label: "Florist direction",
+    slug: "soft-florist-catalog",
+    image: "/images/showcase/soft-florist-catalog.png",
+  },
+  {
+    label: "Company direction",
+    slug: "crayon-daycare-trust-website",
+    image: "/images/showcase/crayon-kinder.jpg",
+  },
+  {
+    label: "Dashboard direction",
+    slug: "dashboard-web-app",
+    image: "/images/showcase/dashboard-web-app.png",
+  },
+] as const;
 
 export function HomePage() {
   return (
@@ -76,27 +147,35 @@ function Hero() {
         <HeroVideo />
       </div>
       <div className="container-wide">
-        <Reveal className="hero-copy">
-          <p className="eyebrow">Studio digital berbasis showcase</p>
-          <h1 className="display">
-            Temukan arah yang tepat, lalu <em>bangun bersama Nexus.</em>
-          </h1>
-          <p className="lead">
-            Nexus membantu bisnis menemukan referensi, menyusun struktur, merancang tampilan,
-            dan membangun website atau aplikasi yang siap digunakan.
-          </p>
-          <div className="hero-actions">
-            <Link className="button button-dark" href="/brief?source=homepage-hero">
-              Konsultasi Project <ArrowRight size={17} />
-            </Link>
-            <Link className="button button-light" href="/showcase">
-              Lihat Showcase
-            </Link>
-          </div>
-          <p className="hero-note">Mulai dari ide, referensi, atau kebutuhan yang masih mentah.</p>
-        </Reveal>
+        <Stagger className="hero-copy" delay={0.08}>
+          <StaggerItem><p className="eyebrow">Studio digital berbasis showcase</p></StaggerItem>
+          <StaggerItem>
+            <h1 className="display">
+              Temukan arah yang tepat, lalu <em>bangun bersama Nexus.</em>
+            </h1>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="lead">
+              Nexus membantu bisnis menemukan referensi, menyusun struktur, merancang tampilan,
+              dan membangun website atau aplikasi yang siap digunakan.
+            </p>
+          </StaggerItem>
+          <StaggerItem>
+            <div className="hero-actions">
+              <Link className="button button-dark" href="/brief?source=homepage-hero">
+                Konsultasi Project <ArrowRight size={17} />
+              </Link>
+              <Link className="button button-light" href="/showcase">
+                Lihat Showcase
+              </Link>
+            </div>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="hero-note">Mulai dari ide, referensi, atau kebutuhan yang masih mentah.</p>
+          </StaggerItem>
+        </Stagger>
 
-        <Reveal delay={0.18}>
+        <Reveal delay={0.22} variant="scale">
           <div className="hero-stage">
             <div className="browser">
               <div className="browser-bar" aria-hidden="true">
@@ -129,10 +208,22 @@ function Hero() {
                   </div>
                 </div>
                 <div className="preview-panel">
-                  {["Travel", "Florist", "Company", "Dashboard"].map((title) => (
-                    <div className="mini-preview" key={title}>
-                      <span>{title} direction</span>
-                    </div>
+                  {heroPreviews.map((item) => (
+                    <Link
+                      className="mini-preview"
+                      href={`/showcase/${item.slug}`}
+                      key={item.slug}
+                    >
+                      <span className="mini-preview-image">
+                        <Image
+                          src={item.image}
+                          alt={`Preview ${item.label}`}
+                          fill
+                          sizes="(max-width: 767px) 80vw, 260px"
+                        />
+                      </span>
+                      <span>{item.label}</span>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -162,19 +253,21 @@ function ServiceRow() {
               Bukan cuma satu jenis website, tapi untuk <em>berbagai kebutuhan digital.</em>
             </h2>
           </div>
-          <div className="service-grid">
+          <Stagger className="service-grid" delay={0.08}>
             {services.slice(0, 5).map((service, index) => {
               const Icon = icons[index];
               return (
-                <Link className="service-item" href={`/services/${service.slug}`} key={service.slug}>
-                  <span className="service-icon">
-                    <Icon size={25} strokeWidth={1.7} />
-                  </span>
-                  <span>{service.title}</span>
-                </Link>
+                <StaggerItem key={service.slug}>
+                  <Link className="service-item" href={`/services/${service.slug}`}>
+                    <span className="service-icon">
+                      <Icon size={25} strokeWidth={1.7} />
+                    </span>
+                    <span>{service.title}</span>
+                  </Link>
+                </StaggerItem>
               );
             })}
-          </div>
+          </Stagger>
         </Reveal>
       </div>
     </section>
@@ -190,17 +283,25 @@ function PersonaSection() {
           Dari bisnis lokal sampai produk digital, arah project dibentuk mengikuti kebutuhan nyata.
         </p>
       </Reveal>
-      <div className="horizontal-rail" aria-label="Tipe pengguna Nexus">
-        {personas.map(([title, description]) => (
+      <HorizontalRail label="Tipe pengguna Nexus">
+        {personas.map(([title, description, image]) => (
           <article className="persona-card" key={title}>
-            <div className="persona-art" aria-hidden="true" />
+            <div className="persona-art">
+              <Image
+                className="persona-image"
+                src={image}
+                alt={`Ilustrasi ${title}`}
+                fill
+                sizes="255px"
+              />
+            </div>
             <div className="persona-body">
               <h3>{title}</h3>
               <p>{description}</p>
             </div>
           </article>
         ))}
-      </div>
+      </HorizontalRail>
     </section>
   );
 }
@@ -208,8 +309,8 @@ function PersonaSection() {
 function DirectionSection() {
   return (
     <section className="section" id="direction">
-      <Reveal className="container">
-        <div className="feature-panel">
+      <Reveal className="container" variant="left">
+        <div className="feature-panel direction-panel">
           <div className="mockup-stack" aria-label="Visual proses direction">
             <div className="mockup-note">
               <span className="mini-label">Project brief</span>
@@ -279,16 +380,62 @@ function QuoteSection() {
 
 function BuildSection() {
   const cards = [
-    [Code2, "Frontend & Interface", ["Next.js", "React", "Responsive UI", "Motion"]],
-    [Database, "Backend & Data", ["Supabase", "PostgreSQL", "CMS", "API"]],
-    [Rocket, "Start Building", ["Landing Page", "Company Profile", "Web App", "Dashboard"]],
-    [Target, "Lead & Growth", ["WhatsApp", "Forms", "SEO Basic", "Analytics"]],
+    {
+      icon: Code2,
+      title: "Frontend & Interface",
+      items: [
+        { icon: SiNextdotjs, label: "Next.js", tone: "next", color: "#111111" },
+        { icon: SiReact, label: "React", tone: "react", color: "#149ECA" },
+        { icon: SiTailwindcss, label: "Responsive UI", tone: "tailwind", color: "#06B6D4" },
+        { icon: SiFramer, label: "Motion", tone: "framer", color: "#8254F5" },
+      ],
+    },
+    {
+      icon: Database,
+      title: "Backend & Data",
+      items: [
+        { icon: SiSupabase, label: "Supabase", tone: "supabase", color: "#3ECF8E" },
+        { icon: SiPostgresql, label: "PostgreSQL", tone: "postgres", color: "#4169E1" },
+        { icon: SiStrapi, label: "CMS", tone: "strapi", color: "#4945FF" },
+        { icon: SiPostman, label: "API", tone: "postman", color: "#FF6C37" },
+      ],
+    },
+    {
+      icon: Rocket,
+      title: "Start Building",
+      items: [
+        { icon: SiClaude, label: "Claude", tone: "claude", color: "#D97757" },
+        { icon: TbBrandOpenai, label: "Codex", tone: "codex", color: "#111111" },
+        { icon: SiCursor, label: "Cursor", tone: "cursor", color: "#202020" },
+        { icon: SiGooglegemini, label: "Gemini", tone: "gemini", color: "#657DEB" },
+      ],
+    },
+    {
+      icon: Target,
+      title: "Lead & Growth",
+      items: [
+        { icon: SiWhatsapp, label: "WhatsApp", tone: "whatsapp", color: "#25D366" },
+        { icon: SiGoogleforms, label: "Forms", tone: "forms", color: "#7248B9" },
+        {
+          icon: SiGooglesearchconsole,
+          label: "Google Search Console",
+          tone: "search-console",
+          color: "#4285F4",
+        },
+        {
+          icon: SiGoogleanalytics,
+          label: "Google Analytics",
+          tone: "analytics",
+          color: "#E37400",
+        },
+      ],
+    },
   ] as const;
 
   return (
     <section className="section">
-      <Reveal className="container">
-        <div className="feature-panel mint">
+      <Reveal className="container" variant="right">
+        <div className="feature-panel build-panel mint">
           <div className="feature-copy">
             <p className="eyebrow">Build</p>
             <h2 className="section-title">Hubungkan website dengan tools yang sudah dipakai bisnismu.</h2>
@@ -300,17 +447,31 @@ function BuildSection() {
               Diskusikan Kebutuhan <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="integration-grid">
-            {cards.map(([Icon, title, items]) => (
-              <article className="integration-card" key={title}>
-                <Icon size={22} />
-                <h3>{title}</h3>
-                <div className="chip-list">
-                  {items.map((item) => <span className="tag" key={item}>{item}</span>)}
-                </div>
-              </article>
+          <Stagger className="integration-grid" delay={0.12}>
+            {cards.map(({ icon: Icon, title, items }) => (
+              <StaggerItem key={title}>
+                <article className="integration-card">
+                  <div className="integration-heading">
+                    <Icon size={19} aria-hidden="true" />
+                    <h3>{title}</h3>
+                  </div>
+                  <div className="integration-logos">
+                    {items.map(({ icon: ItemIcon, label, tone, color }) => (
+                      <span
+                        className={`integration-logo integration-logo-${tone}`}
+                        key={label}
+                        title={label}
+                        aria-label={label}
+                        style={{ color }}
+                      >
+                        <ItemIcon size={22} aria-hidden="true" />
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </Reveal>
     </section>
@@ -346,8 +507,8 @@ function ProcessSection() {
 
   return (
     <section className="section" id="process">
-      <Reveal className="container">
-        <div className="feature-panel yellow">
+      <Reveal className="container" variant="mask">
+        <div className="feature-panel process-panel yellow">
           <div className="feature-copy">
             <p className="eyebrow">Process</p>
             <h2 className="section-title">Alur project yang jelas dari konsultasi sampai launch.</h2>
@@ -359,16 +520,19 @@ function ProcessSection() {
               Mulai dari Brief <ArrowRight size={16} />
             </Link>
           </div>
-          <div className="process-grid">
-            {cards.map(([Icon, title, items]) => (
-              <article className="process-card" key={title}>
-                <h3><Icon size={20} /> {title}</h3>
-                <ul>
-                  {items.map((item) => <li key={item}><CheckCircle2 size={14} /> {item}</li>)}
-                </ul>
-              </article>
+          <Stagger className="process-grid" delay={0.16}>
+            {cards.map(([Icon, title, items], index) => (
+              <StaggerItem key={title}>
+                <article className="process-card">
+                  <span className="process-step">0{index + 1}</span>
+                  <h3><Icon size={20} /> {title}</h3>
+                  <ul>
+                    {items.map((item) => <li key={item}><CheckCircle2 size={14} /> {item}</li>)}
+                  </ul>
+                </article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </Reveal>
     </section>
@@ -436,11 +600,11 @@ function ShowcaseSection() {
         <h2 className="section-title">Bikin website yang terasa benar-benar milik brand kamu.</h2>
         <p className="lead">Pilih arah sebagai titik awal—bukan untuk disalin mentah.</p>
       </Reveal>
-      <div className="horizontal-rail showcase-rail" aria-label="Website direction carousel">
+      <HorizontalRail className="showcase-rail" label="Website direction carousel">
         {showcases.map((item, index) => (
           <ShowcaseCard item={item} priority={index < 2} key={item.slug} />
         ))}
-      </div>
+      </HorizontalRail>
     </section>
   );
 }
@@ -450,10 +614,43 @@ function ChannelSection() {
     "Halo Nexus Project, saya ingin konsultasi pembuatan website/aplikasi dan ingin dibantu menentukan arah project."
   );
   const channels = [
-    [MessageCircle, "WhatsApp", "Konsultasi project dan kirim referensi.", whatsapp, false],
-    [Camera, "Instagram", "Update desain, mockup, dan proses.", siteConfig.instagram, false],
-    [Globe2, "Showcase Library", "Jelajahi arah berdasarkan kebutuhan.", "/showcase", true],
-    [BookOpen, "Resources", "Checklist dan panduan sebelum membangun.", "/resources", false],
+    {
+      title: "WhatsApp",
+      description: "Konsultasi project dan kirim referensi.",
+      href: whatsapp,
+      logo: "/images/brands/whatsapp.svg",
+      logoWidth: 145,
+      logoHeight: 40,
+      dark: false,
+    },
+    {
+      title: "Instagram",
+      description: "Update desain, mockup, dan proses.",
+      href: siteConfig.instagram,
+      logo: "/images/brands/instagram.svg",
+      logoWidth: 148,
+      logoHeight: 32,
+      dark: false,
+    },
+    {
+      title: "Showcase Library",
+      description: "Jelajahi arah berdasarkan kebutuhan.",
+      href: "/showcase",
+      logo: "/images/brands/behance.svg",
+      logoWidth: 150,
+      logoHeight: 28,
+      dark: true,
+    },
+    {
+      title: "Resources",
+      description: "Checklist dan panduan sebelum membangun.",
+      href: "/resources",
+      logo: "/images/brands/notion.svg",
+      logoWidth: 42,
+      logoHeight: 42,
+      logoText: "Notion",
+      dark: false,
+    },
   ] as const;
 
   return (
@@ -463,9 +660,19 @@ function ChannelSection() {
         <p className="lead">Pilih cara paling nyaman untuk melihat referensi atau mulai berdiskusi.</p>
       </Reveal>
       <Reveal className="container channels-grid">
-        {channels.map(([Icon, title, description, href, dark]) => (
+        {channels.map(({ title, description, href, dark, logo, logoWidth, logoHeight, ...channel }) => (
           <Link className={`channel-card ${dark ? "dark" : ""}`} href={href} key={title}>
-            <span className="channel-icon"><Icon size={29} /></span>
+            <span className={`channel-logo ${dark ? "channel-logo-on-dark" : ""}`}>
+              <Image
+                src={logo}
+                alt=""
+                width={logoWidth}
+                height={logoHeight}
+              />
+              {"logoText" in channel ? (
+                <span className="channel-logo-text">{channel.logoText}</span>
+              ) : null}
+            </span>
             <h3>{title}</h3>
             <p>{description}</p>
             <span className="button button-light button-small">Buka <ArrowRight size={14} /></span>
@@ -516,9 +723,10 @@ function FinalCTA() {
   return (
     <section className="section">
       <Reveal className="container final-cta">
-        <div>
+        <div className="final-cta-copy">
+          <p className="eyebrow">Start a project</p>
           <h2 className="section-title">Siap bikin website atau aplikasi yang lebih serius?</h2>
-          <p>
+          <p className="final-cta-description">
             Kirim kebutuhan, referensi, atau contoh website yang kamu suka. Nexus bantu ubah jadi arah
             project yang jelas.
           </p>
@@ -528,7 +736,7 @@ function FinalCTA() {
             Mulai Project <ArrowRight size={16} />
           </Link>
           <Link className="button button-light" href={referenceUrl}>
-            Kirim Referensi
+            Kirim Referensi <ArrowRight size={16} />
           </Link>
         </div>
       </Reveal>
