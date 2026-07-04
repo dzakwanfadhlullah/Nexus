@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BackToTop } from "@/components/layout/BackToTop";
+import { IndonesiaClock } from "@/components/layout/IndonesiaClock";
 import { Reveal } from "@/components/motion/Reveal";
 import { siteConfig } from "@/data/site";
 
@@ -72,13 +72,9 @@ export function Footer() {
             </nav>
           ))}
         </Reveal>
-        <Reveal className="footer-wordmark" variant="mask">
-          <span aria-hidden="true">Nexus</span>
-        </Reveal>
         <div className="footer-bottom">
           <span>© 2026 Nexus Project. Dibangun dengan arah, struktur, dan tujuan.</span>
-          <span>Bandung, Indonesia · GMT+7</span>
-          <BackToTop />
+          <IndonesiaClock />
         </div>
       </footer>
     </div>
