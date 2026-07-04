@@ -11,7 +11,7 @@ export const siteConfig = {
   description:
     "Nexus Project membantu bisnis menemukan arah website atau aplikasi melalui showcase, lalu membangunnya menjadi produk digital yang siap digunakan.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6281234567890",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6288232452571",
   email: process.env.NEXT_PUBLIC_EMAIL ?? "hello@nexusproject.id",
   instagram:
     process.env.NEXT_PUBLIC_INSTAGRAM_URL ??

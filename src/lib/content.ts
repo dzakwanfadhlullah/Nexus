@@ -25,7 +25,7 @@ export function getRelatedShowcases(current: ShowcaseItem, limit = 3) {
 }
 
 export function buildWhatsAppUrl(message: string) {
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6281234567890";
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6288232452571";
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
 
