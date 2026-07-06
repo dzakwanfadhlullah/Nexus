@@ -224,6 +224,17 @@ a {
   font-size: 0.86rem;
 }
 
+.button-icon {
+  width: 48px;
+  flex: 0 0 48px;
+  padding-inline: 0;
+}
+
+.button-icon.button-small {
+  width: 40px;
+  flex-basis: 40px;
+}
+
 .tag {
   display: inline-flex;
   min-height: 28px;
@@ -2450,6 +2461,16 @@ a {
   .detail-actions .button,
   .showcase-actions .button {
     width: 100%;
+  }
+
+  .detail-actions .button-icon,
+  .showcase-actions .button-icon {
+    width: 48px;
+    align-self: flex-start;
+  }
+
+  .showcase-actions .button-icon {
+    width: 40px;
   }
 
   .hero-stage {

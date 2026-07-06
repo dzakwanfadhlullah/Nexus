@@ -30,6 +30,7 @@ export type ShowcaseItem = {
   pageStructure: string[];
   keyFeatures: string[];
   styleDirection: string;
+  liveUrl?: string;
   createdAt: string;
 };
 

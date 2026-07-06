@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ExternalLink } from "lucide-react";
 import { showcases } from "@/data/site";
 import {
   formatShowcaseStatus,
@@ -73,6 +73,18 @@ export default async function ShowcaseDetailPage({
               <Link className="button button-light" href="/showcase">
                 Showcase lainnya
               </Link>
+              {item.liveUrl ? (
+                <a
+                  className="button button-light button-icon"
+                  href={item.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Kunjungi website ${item.title}`}
+                  title={`Kunjungi website ${item.title}`}
+                >
+                  <ExternalLink size={18} aria-hidden="true" />
+                </a>
+              ) : null}
             </div>
           </div>
           <div className="detail-preview">

@@ -157,6 +157,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Editorial luxury dengan tipografi display berani, photography berukuran besar, ruang negatif luas, dan palet monokrom hangat.",
+    liveUrl: "https://7seventhesalon.vercel.app/",
     createdAt: "2026-07-04",
   },
   {
@@ -216,6 +217,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Calm product UI bernuansa biru-putih dengan typography editorial, structured cards, dan dashboard density yang tetap ringan.",
+    liveUrl: "https://kareer-tracker.vercel.app/",
     createdAt: "2026-07-04",
   },
   {
@@ -275,6 +277,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Retro pixel arcade yang playful dengan sky landscape, rounded product cards, dan warna komunitas yang energik.",
+    liveUrl: "https://osgov8.vercel.app/",
     createdAt: "2026-07-04",
   },
   {
@@ -334,6 +337,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Soft editorial photography dengan cream, peach, lavender, rounded framing, dan tone yang hangat serta approachable.",
+    liveUrl: "https://afternoon-mu.vercel.app/",
     createdAt: "2026-07-04",
   },
   {
@@ -393,6 +397,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Dark technical editorial dengan ASCII atmosphere, high-contrast product UI, serta hierarchy yang menekankan data dan disiplin.",
+    liveUrl: "https://tradekita.vercel.app/",
     createdAt: "2026-07-04",
   },
   {
@@ -452,6 +457,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Friendly EdTech product UI dengan sky blue, soft gradients, rounded cards, dan dashboard hierarchy yang memotivasi.",
+    liveUrl: "https://kelaskampus-frontend.vercel.app/",
     createdAt: "2026-07-04",
   },
   {
@@ -511,6 +517,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Editorial hitam-putih yang tegas untuk customer-facing pages, dipadukan dengan admin UI netral, padat, dan fungsional.",
+    liveUrl: "https://barber-labs-three.vercel.app/",
     createdAt: "2026-07-03",
   },
   {
@@ -570,6 +577,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Editorial otomotif yang tegas, monokrom, dan spacious dengan aksen merah sebagai penanda lokasi dan aksi.",
+    liveUrl: "https://jogja-rental.vercel.app/",
     createdAt: "2026-07-03",
   },
   {
@@ -688,6 +696,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Lembut, humane, reassuring, dan editorial dengan rounded imagery, warna sage/blue/coral, serta hierarchy yang tenang.",
+    liveUrl: "https://crayondaycare.vercel.app/",
     createdAt: "2026-07-03",
   },
   {
@@ -747,6 +756,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Minimal, organic, dan premium dengan whitespace luas, typography editorial, serta topographic landscape bernuansa olive.",
+    liveUrl: "https://agrobuah.vercel.app/",
     createdAt: "2026-07-03",
   },
   {
@@ -806,6 +816,7 @@ const showcaseCatalog: ShowcaseItem[] = [
     ],
     styleDirection:
       "Soft, modern, dan conversion-friendly dengan palette cream/blue, headline besar, serta produk pastel sebagai focal point.",
+    liveUrl: "https://bleum.vercel.app/",
     createdAt: "2026-07-03",
   },
   {

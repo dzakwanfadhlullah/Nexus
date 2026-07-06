@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { formatShowcaseStatus, formatType } from "@/lib/content";
 import type { ShowcaseItem } from "@/types/content";
 import { ShowcaseVisual } from "@/components/showcase/ShowcaseVisual";
@@ -47,6 +47,18 @@ export function ShowcaseCard({
           <Link className="button button-light button-small" href={`/showcase/${item.slug}`}>
             Detail
           </Link>
+          {item.liveUrl ? (
+            <a
+              className="button button-light button-small button-icon"
+              href={item.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Kunjungi website ${item.title}`}
+              title={`Kunjungi website ${item.title}`}
+            >
+              <ExternalLink size={16} aria-hidden="true" />
+            </a>
+          ) : null}
         </div>
       </div>
     </article>
