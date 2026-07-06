@@ -2452,21 +2452,35 @@ a {
   }
 
   .hero-actions,
-  .detail-actions,
-  .showcase-actions {
+  .detail-actions {
     flex-direction: column;
   }
 
   .hero-actions .button,
-  .detail-actions .button,
+  .detail-actions .button {
+    width: 100%;
+  }
+
+  .detail-actions .button-icon {
+    width: 48px;
+    align-self: flex-start;
+  }
+
+  .showcase-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-actions:has(.button-icon) {
+    grid-template-columns: minmax(0, 1fr) 40px;
+  }
+
   .showcase-actions .button {
     width: 100%;
   }
 
-  .detail-actions .button-icon,
-  .showcase-actions .button-icon {
-    width: 48px;
-    align-self: flex-start;
+  .showcase-actions .button-dark {
+    grid-column: 1 / -1;
   }
 
   .showcase-actions .button-icon {
